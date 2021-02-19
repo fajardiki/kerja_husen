@@ -126,6 +126,11 @@ class Peminjaman extends MY_Controller {
         }
     }
 
+    public function print(){
+        $data['tmp']       = $this->Mod_peminjaman->getTmp()->result();
+        $this->load->view('peminjaman/peminjaman_print',$data);
+    }
+
 
 }
 
