@@ -84,6 +84,10 @@ class Pengembalian extends MY_Controller {
             $this->Mod_pengembalian->UpdateStatusBerkas($norm, $status);
 
         }
+
+        echo json_encode([
+            'data' => $simpan
+        ]);
     }
 
     public function test() {

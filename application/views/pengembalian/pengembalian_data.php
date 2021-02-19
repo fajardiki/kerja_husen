@@ -232,11 +232,11 @@ $(document).ready(function() {
                        $("#unit").val(data[3]);
                        $("#rak").val(data[4]);
 
-                       if(data[1] == formatDate(Date())) {
-                            console.log(formatDate(Date()));
-                            $('#simpan_transaksi').attr('disabled','disabled');
-                            $('.tgl_sama').append("Pengembalian dilakukan miniman h+! peminjaman");
-                       }
+                    //    if(data[1] == formatDate(Date())) {
+                    //         console.log(formatDate(Date()));
+                    //         $('#simpan_transaksi').attr('disabled','disabled');
+                    //         $('.tgl_sama').append("Pengembalian dilakukan miniman h+! peminjaman");
+                    //    }
 
                        $("#telat").attr("disabled", false);
                        $("#telat").focus();
@@ -322,15 +322,12 @@ $(document).ready(function() {
                 type:"POST",
                 data:"no_transaksi="+no_transaksi+"&telat="+telat+"&rak="+rak,
                 cache:false,
-                success:function(){
+                success:function(response){
                     alert("Transaksi berhasil disimpan");
-                    location.reload();
+                    // location.reload();
                 }
             })//end ajax
         }
-       
-     
-
     }) //end simpan_transaksai
 
     
