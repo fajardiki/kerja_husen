@@ -12,7 +12,7 @@ class Peminjaman extends MY_Controller {
     public function index()
     {
         $data['tglpinjam']  = date('Y-m-d');
-        $data['tglkembali'] = date('Y-m-d', strtotime('+7 day', strtotime($data['tglpinjam'])));
+        $data['tglkembali'] = date('Y-m-d', strtotime('+1 day', strtotime($data['tglpinjam'])));
         $data['autonumber'] = $this->Mod_peminjaman->AutoNumbering();
         $data['poli']    = $this->Mod_poli->getPoli()->result();
         $this->template->load('layoutbackend', 'peminjaman/peminjaman_data', $data);

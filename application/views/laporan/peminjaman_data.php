@@ -24,7 +24,7 @@
                 <?php echo $title;?>
             </div>
             <div class="panel-body">
-               <br />
+               <br/>
                <div class="form-horizontal">
                     <div class="form-group">
                         <label class="col-lg-2">Tanggal Awal</label>
@@ -46,9 +46,15 @@
                </div><br />
                <div id="loader"></div>
                <div id="tampil"></div>
+
             
             </div> <!-- end panel body -->
-        
+
+            <div class="panel-footer">
+                <button id="cetak_peminjaman" onclick="cetak_peminjaman()" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> Cetak</button>
+                <p ><i class="tgl_sama text-danger"></i></p>
+            </div>
+
         </div><!-- end panel -->
 
     </div> <!-- end lg -->
@@ -106,7 +112,9 @@
 <script>
 $(document).ready(function() {
 
-    //alert('');
+    function cetak_peminjaman() {
+        $
+    }
 
     //load datatable
     $('#dataTables-example').DataTable({

@@ -177,7 +177,7 @@ $(document).ready(function() {
     });
 
     //cari by id_unit
-    $("#carinis").keyup(function(){
+    $("#carinis").keyup($cari = function(){
         var id_unit = $("#carinis").val();
         
         $.ajax({
@@ -191,6 +191,8 @@ $(document).ready(function() {
             }
         })
     })
+
+    $cari();
 
 
     //tambahkan data dari modal ke form berdasarkan id_transaksi
@@ -324,7 +326,7 @@ $(document).ready(function() {
                 cache:false,
                 success:function(response){
                     alert("Transaksi berhasil disimpan");
-                    // location.reload();
+                    location.reload();
                 }
             })//end ajax
         }

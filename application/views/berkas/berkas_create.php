@@ -68,7 +68,7 @@
                     <p class="col-sm-2 text-left">Tanggal Lahir </p>
 
                     <div class="col-sm-10">
-                        <input type="text" name="tgl_lahir" class="form-control" placeholder="Tanggal Lahir" id="tanggal"  value="<?php echo set_value('tgl_lahir'); ?>">
+                        <input type="text" name="tgl_lahir" class="form-control" placeholder="Tanggal Lahir" id="tanggal"  value="<?php echo set_value('tgl_lahir'); ?>" autocomplete="off">
                     </div>
                 </div>
 
@@ -76,7 +76,7 @@
                     <p class="col-sm-2 text-left">Alamat </p>
 
                     <div class="col-sm-10">
-                        <input type="text" name="alamat" class="form-control" placeholder="Alamat"  value="<?php echo set_value('alamat'); ?>">
+                        <input type="text" name="alamat" class="form-control" placeholder="Alamat"  value="<?php echo set_value('alamat'); ?>" autocomplete="off">
                     </div>
                 </div>
 
@@ -102,7 +102,7 @@
                         <div class="btn-group pull-right">
                             <input type="submit" name="save" value="Save" class="btn btn-success btn-sm">
                         </div>
-                    </div>
+                    </div>  
                 </div>
             <?php echo form_close(); ?>
             </div>
@@ -140,17 +140,13 @@
 tinymce.init({selector:'textarea'});
 
 $(document).ready(function() {
-    $("#tanggal1").datepicker({
-        format:'yyyy-mm-dd'
-    });
-    
-    $("#tanggal2").datepicker({
-        format:'yyyy-mm-dd'
-    });
-    
+
     $("#tanggal").datepicker({
-        format:'yyyy-mm-dd'
-    });
+        format: 'yyyy-mm-dd',
+       onRender: function(date) {
+            return date.valueOf() < new Date('2020-12-12').valueOf() ? 'disabled' : '';
+        }
+     });
 })
 
 

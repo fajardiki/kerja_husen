@@ -10,9 +10,19 @@ class Mod_pengembalian extends CI_Model {
 
     public function SearchNis($id_unit)
     {
-        $data = $this->db->query("SELECT * FROM $this->table_transaksi WHERE id_transaksi 
-                                  NOT IN(SELECT id_transaksi FROM $this->table_pengembalian)
-                                  AND id_unit LIKE '%$id_unit%' GROUP BY id_unit");
+        $where = '';
+        if(!empty($id_unit)) {
+            $where .= sprintf("AND a.id_transaksi LIKE '%%%s%%' ", $id_unit);
+        }
+
+        $data = $this->db->query("
+            SELECT 
+                * 
+            FROM
+                transaksi a 
+            WHERE 1 AND a.status = 'N' 
+            $where
+        ");
         return $data;
     }
 
