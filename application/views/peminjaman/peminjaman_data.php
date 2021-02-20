@@ -114,6 +114,9 @@
             
             <div class="panel-footer">
                 <button id="simpan" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Simpan</button>
+
+                <button id="simpan" class="btn btn-primary"><i class="glyphicon fa fa-print"></i> Cetak</button>
+
             </div>
         </div>
         <!-- end data berkas -->
