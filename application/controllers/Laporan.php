@@ -53,6 +53,15 @@ class Laporan extends MY_Controller {
         // $this->template->load('layoutbackend', 'laporan/peminjaman_detail', $data);
     }
 
+    public function print_pinjam()
+    {
+        $tanggal1 = $this->input->post('tanggal1');
+        $tanggal2 = $this->input->post('tanggal2');
+        $data['data_print'] = $this->Mod_laporan->searchPinjaman($tanggal1,$tanggal2);
+        
+        $this->load->view('laporan/print_template',$data);
+    }
+
     public function pengembalian()
     {
         $data['title']="Laporan Pengembalian";

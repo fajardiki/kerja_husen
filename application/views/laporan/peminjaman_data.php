@@ -51,7 +51,7 @@
             </div> <!-- end panel body -->
 
             <div class="panel-footer">
-                <button id="cetak_peminjaman" onclick="cetak_peminjaman()" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> Cetak</button>
+                <button id="cetak_peminjaman" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> Cetak</button>
                 <p ><i class="tgl_sama text-danger"></i></p>
             </div>
 
@@ -70,12 +70,8 @@
         </div>
         <div class="modal-body"><br />
             <!--<label class="col-lg-4 control-label">Cari Nama Nasabah</label>-->
-          
-
             <div id="tampildetail"></div>
-
         </div>
-
         <br /><br />
         <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -86,7 +82,27 @@
 </div>
 <!-- End Modal Cari Berkas -->
 
-
+<!-- Modal Print -->
+<div class="modal fade" id="myModalPrint" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"><strong>Print Data Peminjaman</strong></h4>
+        </div>
+        <div class="modal-body"><br />
+            <!--<label class="col-lg-4 control-label">Cari Nama Nasabah</label>-->
+            <div id="tampildataprint"></div>
+        </div>
+        <br /><br />
+        <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <!--<button type="button" class="btn btn-primary" id="konfirmasi">Hapus</button>-->
+        </div>
+    </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!-- End Modal Cari Berkas -->
 
 <!-- jQuery -->
 <script src="<?php echo base_url(); ?>template/backend/sbadmin/vendor/jquery/jquery.min.js"></script>
@@ -110,12 +126,8 @@
 
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
+
 $(document).ready(function() {
-
-    function cetak_peminjaman() {
-        $
-    }
-
     //load datatable
     $('#dataTables-example').DataTable({
         responsive: true
@@ -187,6 +199,24 @@ $(document).ready(function() {
     })
     $tampilkan();
 
+    $("#cetak_peminjaman").click(function(){
+        var tanggal1 = $("#tanggal1").val();
+        var tanggal2 = $("#tanggal2").val();
+
+        $.ajax({
+            url:"<?php echo site_url('laporan/print_pinjam');?>",
+            type:"POST",
+            data:"tanggal1="+tanggal1+"&tanggal2="+tanggal2,
+            cache:false,
+            success:function(hasil){
+                // console.log(hasil);
+                $("#tampildataprint").html(hasil);
+                $("#myModalPrint").modal("show");
+            }
+        })
+    })
+
+
     //end #tampilkan
     
 
@@ -207,7 +237,7 @@ $(document).ready(function() {
                     $("#myModal3").modal("show");
                     //  $('#loader').html("").hide();
                 }
-            })
+        })
      
      });
     
