@@ -22,7 +22,6 @@
     </tr>
     <?php endforeach;?>
 </table>
-
 <?php }else{ ?>
 <p class="text-center"><strong> ~ Maaf Data Belum Tersedia ~ </strong></p>
 <?php } ?>

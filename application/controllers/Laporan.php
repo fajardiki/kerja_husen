@@ -81,11 +81,14 @@ class Laporan extends MY_Controller {
 
     public function detail_pengembalian()
     {
-        $id_transaksi = $this->input->post('id_transaksi');
+        // $id_transaksi = $this->input->post('id_transaksi');
+        $id_transaksi = '20200802001';
         $data['title']               = "Detail Pengembalian";
         $data['pengembalian']        = $this->Mod_laporan->detailPengembalian($id_transaksi)->row_array(); 
         $data['detailjpengembalian'] = $this->Mod_laporan->detailPengembalian($id_transaksi)->result();
         $this->load->view('laporan/pengembalian_detail', $data);
+
+        // var_dump($data['pengembalian']);
 
         // $id_transaksi = $this->uri->segment(3);
         // $data['title']               = "Detail Pengembalian";

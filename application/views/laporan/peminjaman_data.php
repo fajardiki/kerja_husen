@@ -16,7 +16,7 @@
     <!-- /.col-lg-12 -->
 </div>
 
-<div class="row">
+<div class="row" id="reloadscope">
     <div class="col-lg-12">
 
         <div class="panel panel-default">
@@ -51,7 +51,6 @@
             </div> <!-- end panel body -->
 
             <div class="panel-footer">
-                <button id="cetak_peminjaman" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> Cetak</button>
                 <p ><i class="tgl_sama text-danger"></i></p>
             </div>
 
@@ -64,39 +63,20 @@
 <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title"><strong>Detail Peminjaman</strong></h4>
-        </div>
-        <div class="modal-body"><br />
-            <!--<label class="col-lg-4 control-label">Cari Nama Nasabah</label>-->
-            <div id="tampildetail"></div>
-        </div>
-        <br /><br />
-        <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        <!--<button type="button" class="btn btn-primary" id="konfirmasi">Hapus</button>-->
-        </div>
-    </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div>
-<!-- End Modal Cari Berkas -->
-
-<!-- Modal Print -->
-<div class="modal fade" id="myModalPrint" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title"><strong>Print Data Peminjaman</strong></h4>
-        </div>
-        <div class="modal-body"><br />
-            <!--<label class="col-lg-4 control-label">Cari Nama Nasabah</label>-->
-            <div id="tampildataprint"></div>
+        <div id="cetakscope">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><strong>Detail Peminjaman</strong></h4>
+            </div>
+            <div class="modal-body"><br />
+                <!--<label class="col-lg-4 control-label">Cari Nama Nasabah</label>-->
+                <div id="tampildetail"></div>
+            </div>
         </div>
         <br /><br />
         <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <a href="#" id="cetak" class="btn btn-primary" onclick="cetak('cetakscope')">Cetak</a>
+            <a href="#" id="closeModal" class="btn btn-danger" onclick="closeModal()">Close</a>
         <!--<button type="button" class="btn btn-primary" id="konfirmasi">Hapus</button>-->
         </div>
     </div><!-- /.modal-content -->
@@ -146,7 +126,6 @@ $(document).ready(function() {
     $("#tanggal").datepicker({
         format:'yyyy-mm-dd'
     });
-
 
     //get data via ajax 
     $("#tampilkan").click( $tampilkan = function(){
@@ -199,23 +178,6 @@ $(document).ready(function() {
     })
     $tampilkan();
 
-    $("#cetak_peminjaman").click(function(){
-        var tanggal1 = $("#tanggal1").val();
-        var tanggal2 = $("#tanggal2").val();
-
-        $.ajax({
-            url:"<?php echo site_url('laporan/print_pinjam');?>",
-            type:"POST",
-            data:"tanggal1="+tanggal1+"&tanggal2="+tanggal2,
-            cache:false,
-            success:function(hasil){
-                // console.log(hasil);
-                $("#tampildataprint").html(hasil);
-                $("#myModalPrint").modal("show");
-            }
-        })
-    })
-
 
     //end #tampilkan
     
@@ -245,5 +207,24 @@ $(document).ready(function() {
 }); //end document
 </script>
 
+
+<script>
+    function cetak(el) {
+        console.log(el)
+        var restorepage = document.body.innerHTML;
+        var printcontent = document.getElementById(el).innerHTML;
+        document.body.innerHTML = printcontent;
+        window.print();
+        document.body.innerHTML = restorepage;
+        setTimeout(function() {
+            location.reload();
+        }, 1000);
+    }
+
+    function closeModal() {
+        console.log('test')
+        $("#myModal3").modal('hide')
+    }
+</script>
 
 

@@ -64,15 +64,26 @@ class Mod_laporan extends CI_Model {
 
     public function detailPengembalian($id_transaksi)
     {
-        return $this->db->query("SELECT a.*, b.status, c.norm, c.nama, c.alamat, 
-                                CASE 
-                                    WHEN b.status = 'N' THEN 'Masih di pinjam'
-                                ELSE 'Sudah Dikembalikan' 
-                                END AS status_pinjam
-                                FROM pengembalian a, transaksi b, berkas c
-                                WHERE a.id_transaksi = '$id_transaksi'
-                                AND a.id_transaksi = b.id_transaksi
-                                AND b.norm = c.norm");
+        return $this->db->query("
+            SELECT 
+                a.*,
+                b.status,
+                c.norm,
+                c.nama,
+                c.alamat,
+                CASE
+                    WHEN b.status = 'N' 
+                    THEN 'Masih di pinjam' 
+                    ELSE 'Sudah Dikembalikan' 
+                END AS status_pinjam 
+            FROM
+                pengembalian a,
+                transaksi b,
+                berkas c 
+            WHERE 1 
+                AND a.id_transaksi = '$id_transaksi'
+                AND b.norm = c.norm 
+        ");
     }
 
     

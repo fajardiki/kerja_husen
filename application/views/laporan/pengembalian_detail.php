@@ -1,16 +1,16 @@
-<!-- <div class="row">
-    <div class="col-lg-12"><br />
-       
-        <ol class="breadcrumb">
-            <li><a  href="">Laporan</a></li>
-            <li class="active">Detail Pengembalian</li>
-        </ol>
+<style>
+    .col-lg-6 {
+        width: 150px;
+    }
 
-    </div>
-    
-</div> -->
-<!-- /.col-lg-12 -->
+    .table-header {
+        margin-bottom: 20px;
+    }
 
+    .table-deatail {
+        background-color: black;
+    }
+</style>
 <div class="row">
     <div class="col-lg-12">
 
@@ -19,7 +19,27 @@
                 <?php echo $title;?>
             </div>
             <div class="panel-body">
-                <div class="col-md-6">
+                <table class="table-header">
+                    <tr>
+                        <td><label class="col-lg-6">ID Transaksi</label></td>
+                        <td> : <?php echo $pengembalian['id_transaksi'];?></td>
+                    </tr>
+                    <tr>
+                        <td><label class="col-lg-6">Tanggal Pinjam</label></td>
+                        <td> : <?php echo $pengembalian['tgl_pengembalian'];?></td>
+                    </tr>
+                    <tr>
+                        <td><label class="col-lg-6">Telat</label></td>
+                        <td> : <?php echo $pengembalian['telat'];?></td>
+                    </tr>
+                    <tr>
+                        <td><label class="col-lg-6">Status</label></td>
+                        <td> : <?php echo $pengembalian['status_pinjam'];?></td>
+                    </tr>
+                </table>
+
+
+                <!-- <div class="col-md-6">
                     <div class="form-horizontal">
                         <div class="form-group">
                             <label class="col-lg-4">ID Transaksi</label>
@@ -49,7 +69,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <table class="table table-striped table-bordered">
                     <thead>

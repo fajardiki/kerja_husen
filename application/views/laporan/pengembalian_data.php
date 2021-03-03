@@ -58,21 +58,21 @@
 <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
+    <section id="cetakscope">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             <!-- <h4 class="modal-title"><strong>Detail Pengembalian</strong></h4> -->
         </div>
         <div class="modal-body"><br />
             <!--<label class="col-lg-4 control-label">Cari Nama Nasabah</label>-->
-          
-
             <div id="tampildetail"></div>
-
         </div>
+    </section>
 
         <br /><br />
         <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <a href="#" id="cetak" class="btn btn-primary" onclick="cetak('cetakscope')">Cetak</a>
+            <a href="#" id="closeModal" class="btn btn-danger" onclick="closeModal()">Close</a>
         <!--<button type="button" class="btn btn-primary" id="konfirmasi">Hapus</button>-->
         </div>
     </div><!-- /.modal-content -->
@@ -192,7 +192,7 @@ $(document).ready(function() {
                 data:"id_transaksi="+id_transaksi,
                 cache:false,
                 success:function(hasil){
-                    //console.log(hasil);
+                    console.log(hasil);
                     
                     $("#tampildetail").html(hasil);
                     $("#myModal3").modal("show");
@@ -204,6 +204,25 @@ $(document).ready(function() {
     
 
 }); //end document
+</script>
+
+<script>
+    function cetak(el) {
+        console.log(el)
+        var restorepage = document.body.innerHTML;
+        var printcontent = document.getElementById(el).innerHTML;
+        document.body.innerHTML = printcontent;
+        window.print();
+        document.body.innerHTML = restorepage;
+        setTimeout(function() {
+            location.reload();
+        }, 1000);
+    }
+
+    function closeModal() {
+        console.log('test')
+        $("#myModal3").modal('hide')
+    }
 </script>
 
 

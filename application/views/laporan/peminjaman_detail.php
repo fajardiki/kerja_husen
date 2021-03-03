@@ -1,14 +1,16 @@
-<!--
-<div class="row">
-    <div class="col-lg-12"><br />
-       
-        <ol class="breadcrumb">
-            <li><a  href="">Laporan</a></li>
-            <li class="active">Detail Peminjaman</li>
-        </ol>
+<style>
+    .col-lg-6 {
+        width: 150px;
+    }
 
-    </div>
-</div> --> <!-- /.col-lg-12 -->
+    .table-header {
+        margin-bottom: 20px;
+    }
+
+    .table-deatail {
+        background-color: black;
+    }
+</style>
 <div class="row">
     <div class="col-lg-12">
 
@@ -17,39 +19,51 @@
                 <?php echo $title;?>
             </div>
             <div class="panel-body">
-                <div class="col-md-6">
+                <table class="table-header">
+                    <tr>
+                        <td><label class="col-lg-6">ID Transaksi</label></td>
+                        <td> : <?php echo $pinjam['id_transaksi'];?></td>
+                    </tr>
+                    <tr>
+                        <td><label class="col-lg-6">Tanggal Pinjam</label></td>
+                        <td> : <?php echo $pinjam['tanggal_pinjam'];?></td>
+                    </tr>
+                    <tr>
+                        <td><label class="col-lg-6">Nama Unit</label></td>
+                        <td> : <?php echo $pinjam['id_unit'];?></td>
+                    </tr>
+                    <tr>
+                        <td><label class="col-lg-6">Status</label></td>
+                        <td> : <?php echo $pinjam['status_pinjam'];?></td>
+                    </tr>
+                </table>
+
+                <!-- Koding Di bawah ketika di print berantakan, karena halaman ini tidak menggunakan bootsrap -->
+                <!-- <div class="col-md-7">
                     <div class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-lg-3">ID Transaksi</label>
-                            <div class="col-lg-5">
-                                : <?php echo $pinjam['id_transaksi'];?>
-                            </div>
+                            <label class="col-lg-6">ID Transaksi</label>
+                            : <?php echo $pinjam['id_transaksi'];?>
                         </div>
                         
                         <div class="form-group">
-                            <label class="col-lg-3">Tanggal Pinjam</label>
-                            <div class="col-lg-5">
-                                : <?php echo $pinjam['tanggal_pinjam'];?>
-                            </div>
+                            <label class="col-lg-6">Tanggal Pinjam</label>
+                            : <?php echo $pinjam['tanggal_pinjam'];?>
                         </div>
                         
                         <div class="form-group">
-                            <label class="col-lg-3">Nama Unit</label>
-                            <div class="col-lg-5">
-                                : <?php echo $pinjam['id_unit'];?>
-                            </div>
+                            <label class="col-lg-6">Nama Unit</label>
+                            : <?php echo $pinjam['id_unit'];?>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-lg-3">Status</label>
-                            <div class="col-lg-5">
-                                : <?php echo $pinjam['status_pinjam'];?>
-                            </div>
+                            <label class="col-lg-6">Status</label>
+                            : <?php echo $pinjam['status_pinjam'];?>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <table class="table table-striped table-bordered">
+                <table class="table table-striped table-bordered" id="table-deatail">
                     <thead>
                         <tr>
                             <td>No RM</td>
