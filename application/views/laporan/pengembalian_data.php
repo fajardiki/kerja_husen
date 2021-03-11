@@ -61,7 +61,7 @@
     <section id="cetakscope">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <!-- <h4 class="modal-title"><strong>Detail Pengembalian</strong></h4> -->
+            <h4 class="modal-title"><strong>Detail Pengembalian</strong></h4>
         </div>
         <div class="modal-body"><br />
             <!--<label class="col-lg-4 control-label">Cari Nama Nasabah</label>-->
