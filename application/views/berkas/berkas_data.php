@@ -139,12 +139,12 @@ $(document).ready(function() {
         });
         
         $("#konfirmasi").click(function(){
-            var id_unit = $("#idhapus").val();
+            var norm = $("#idhapus").val();
             
             $.ajax({
                 url:"<?php echo site_url('berkas/delete');?>",
                 type:"POST",
-                data:"id_unit="+id_unit,
+                data:"norm="+norm,
                 cache:false,
                 success:function(html){
                     location.href="<?php echo site_url('berkas/index/delete-success');?>";

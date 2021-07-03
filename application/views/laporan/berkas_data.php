@@ -68,6 +68,26 @@
     <!-- /.col-lg-12 -->
 </div>
 
+<!-- Modal Hapus-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Konfirmasi</h4>
+        </div>
+        <div class="modal-body">
+            <input type="hidden" name="idhapus" id="idhapus">
+                <p>Apakah anda yakin ingin menghapus berkas <strong class="text-konfirmasi"> </strong> ?</p>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-xs" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger btn-xs" id="konfirmasi">Hapus</button>
+        </div>
+    </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 
 
 <!-- jQuery -->
@@ -97,6 +117,32 @@ $(document).ready(function() {
 </script>
 
 <script>
+   $(function(){
+        $(".hapus").click(function(){
+            var kode=$(this).attr("kode");
+            var name=$(this).attr("name");
+           
+            $(".text-konfirmasi").text(name)
+            $("#idhapus").val(kode);
+            $("#myModal").modal("show");
+        });
+        
+        $("#konfirmasi").click(function(){
+            var norm = $("#idhapus").val();
+            
+            $.ajax({
+                url:"<?php echo site_url('berkas/delete');?>",
+                type:"POST",
+                data:"norm="+norm,
+                cache:false,
+                success:function(html){
+                    location.href="<?php echo site_url('berkas/index/delete-success');?>";
+                }
+            });
+        });
+    });
+
+
     <?php if($this->session->userdata('role') == "kepala") { ?>
  
         $(document).ready(function(){

@@ -229,10 +229,10 @@ class Berkas extends MY_Controller {
 
         $norm = $this->input->post('norm');
           
-        $g = $this->Mod_berkas->getGambar($norm)->row_array();
+        // $g = $this->Mod_berkas->getGambar($norm)->row_array();
         
         //hapus gambar yg ada diserver
-        unlink('assets/img/berkas/'.$g['image']);
+        // unlink('assets/img/berkas/'.$g['image']);
 
         $this->Mod_berkas->deleteBerkas($norm, 'berkas');
         // echo "berhasil"; die();

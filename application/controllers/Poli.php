@@ -232,7 +232,7 @@ class Poli extends MY_Controller {
 
        
 
-        $g = $this->Mod_poli->getGambar($id_unit)->row_array();
+        // $g = $this->Mod_poli->getGambar($id_unit)->row_array();
         
         //hapus gambar yg ada diserver
        // unlink('assets/img/poli/'.$g['image']);

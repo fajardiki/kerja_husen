@@ -8,12 +8,17 @@ class Laporan extends MY_Controller {
         parent::__construct();
         $this->load->model(array('Mod_laporan','Mod_berkas','Mod_poli'));
     }
-
     
     public function poli()
     {
         $data['poli']      = $this->Mod_poli->getAll();
         $this->template->load('layoutbackend', 'laporan/poli_data', $data);
+    }
+
+    public function delete_poli()
+    {
+        $id_unit = $this->input->post('id_unit');
+        $this->Mod_poli->deletePoli($id_unit, 'poli');
     }
 
     public function berkas()

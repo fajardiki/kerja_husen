@@ -32,7 +32,7 @@
                                     <tr>
                                         <td>No.</td>
                                         <td>Nama</td>
-                                        <td>Nama Unit</td>
+                                        <td>Nama Poli</td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -47,7 +47,7 @@
                                         <td><?php echo $row->unit;?></td>
                                         <td class="text-center">
                                 <a href="<?php echo base_url('poli/edit/'.$row->id_unit) ?>"><input type="submit" class="edit btn-success btn-xs" name="edit" value="Edit"></a>
-                                <a href="#" name="<?php echo $row->nama;?>" class="hapus btn btn-danger btn-xs" kode="<?php echo $row->id_unit;?>">Hapus</a>
+                                <a href="#" name="<?php echo $row->nama;?>" class="hapus btn btn-danger btn-xs" id="hapus" kode="<?php echo $row->id_unit;?>">Hapus</a>
                             </td>
                                     </tr>
                                 <?php $no++; } ?>    
@@ -62,6 +62,26 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
+
+<!-- Modal Hapus-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Konfirmasi</h4>
+        </div>
+        <div class="modal-body">
+            <input type="hidden" name="idhapus" id="idhapus">
+                <p>Apakah anda yakin ingin menghapus berkas <strong class="text-konfirmasi"> </strong> ?</p>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-xs" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger btn-xs" id="konfirmasi">Hapus</button>
+        </div>
+    </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 
 
@@ -92,6 +112,32 @@ $(document).ready(function() {
 </script>
 
 <script>
+
+   $(function(){
+        $(".hapus").click(function(){
+            var kode=$(this).attr("kode");
+            var name=$(this).attr("name");
+           
+            $(".text-konfirmasi").text(name)
+            $("#idhapus").val(kode);
+            $("#myModal").modal("show");
+        });
+        
+        $("#konfirmasi").click(function(){
+            var id_unit = $("#idhapus").val();
+            
+            $.ajax({
+                url:"<?php echo site_url('Laporan/delete_poli');?>",
+                type:"POST",
+                data:"id_unit="+id_unit,
+                cache:false,
+                success:function(html){
+                    location.href="<?php echo site_url('laporan/poli/delete-success');?>";
+                }
+            });
+        });
+    });
+
     <?php if($this->session->userdata('role') == "kepala") { ?>
  
         $(document).ready(function(){
