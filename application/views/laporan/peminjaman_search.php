@@ -1,5 +1,19 @@
+<style>
+  .print-header {
+    display: none;
+  }
+
+  @media print {
+    .print-header {
+      display: block;
+    }
+  }
+</style>
+
 <?php if($hasil_search->num_rows() > 0) { ?>
 <table  id="myTable" class="table table-striped table-bordered">
+    <h3 class="text-center print-header">LAPORAN PEMINJAMAN</h3>
+    <br class="prin-header">
     <thead>
         <tr>
             <td>No.</td>

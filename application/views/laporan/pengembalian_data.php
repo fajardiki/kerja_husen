@@ -46,7 +46,8 @@
                </div><br />
                <div id="loader"></div>
                <div id="tampil"></div>
-            
+              
+              <button class="btn btn-warning" onclick="cetak('tampil')">Cetak</button>
             </div> <!-- end panel body -->
         
         </div><!-- end panel -->

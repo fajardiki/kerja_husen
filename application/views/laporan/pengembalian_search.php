@@ -1,13 +1,27 @@
+<style>
+  .print-header {
+    display: none;
+  }
+
+  @media print {
+    .print-header {
+      display: block;
+    }
+  }
+</style>
+
 <?php if($hasil_search->num_rows() > 0) { ?>
 <table class="table table-striped table-bordered">
+    <h3 class="text-center print-header">LAPORAN PENGEMBALIAN</h3>
+    <br class="prin-header">
     <thead>
-        <tr>
-            <td>No.</td>
-            <td>ID Transaksi</td>
-            <td>Tanggal Pengembalian</td>
-            <td>Terlambat</td>
-            <td>Nama Petugas</td>
-        </tr>
+      <tr>
+          <td>No.</td>
+          <td>ID Transaksi</td>
+          <td>Tanggal Pengembalian</td>
+          <td>Terlambat</td>
+          <td>Nama Petugas</td>
+      </tr>
     </thead>
     <?php $no=0; foreach($hasil_search->result() as $data): $no++;?>
     <tr>
