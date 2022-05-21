@@ -42,7 +42,10 @@ class Mod_users extends CI_Model {
         $this->db->delete($table);
     }
 
-
+    function totalRows($table)
+	  {
+		  return $this->db->count_all_results($table);
+    }
 }
 
 /* End of file Mod_users.php */

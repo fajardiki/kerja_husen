@@ -20,3 +20,15 @@
 </body>
 
 </html>
+
+<script>
+  setInterval(function() {
+    $.ajax({
+      url: 'Telat_pengembalian/ingatkan', 
+      dataType: 'json', 
+      success: function (response) {
+        console.log(response);
+      }
+    })
+  }, 10000);
+</script>

@@ -115,8 +115,8 @@ class Peminjaman extends MY_Controller {
 
             //update rak
             $status = array(
-            'status' => "Dipinjam"
-        );
+              "status" => "Dipinjam"
+            );
 
             $this->Mod_peminjaman->updateStatus($norm,$status);
 
@@ -131,6 +131,22 @@ class Peminjaman extends MY_Controller {
         $this->load->view('peminjaman/peminjaman_print',$data);
     }
 
+    public function pracetak($id_peminjaman)
+    {
+      $mpdf = new \Mpdf\Mpdf([
+        'format' => [75, 65],
+        'margin_left' => 10, 
+        'margin_right' => 10,
+        'margin_top' => 10, 
+        'margin_bottom' => 10
+      ]);
+
+      $data['tmp'] = $this->Mod_peminjaman->getStruk($id_peminjaman)->result();
+      $content_print = $this->load->view('pracetak/struk_transaksi', $data, true);
+
+      $mpdf->WriteHTML($content_print);
+      $mpdf->Output();
+    }
 
 }
 

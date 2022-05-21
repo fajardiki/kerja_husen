@@ -8,7 +8,7 @@ class Mod_peminjaman extends CI_Model
 
     private $table = "transaksi";
     private $tmp   = "tmp";
-    private $berkas   = "berkas";
+    private $poli   = "poli";
     
     function AutoNumbering()
     {
@@ -58,7 +58,7 @@ class Mod_peminjaman extends CI_Model
     public function UpdateStatus($norm, $status)
     {
         $this->db->where("norm", $norm);
-        $this->db->update($this->berkas, $status);
+        $this->db->update("berkas", $status);
         
     }
 
@@ -71,6 +71,14 @@ class Mod_peminjaman extends CI_Model
     function getTransaksi()
     {
         return $this->db->get($this->table);
+    }
+
+    function getStruk($id_peminjaman) {
+      $this->db->select('transaksi.id_transaksi, transaksi.norm, berkas.nama, poli.unit, transaksi.tanggal_pinjam');
+      $this->db->join("berkas", "berkas.norm = transaksi.norm");
+      $this->db->join("poli", "poli.id_unit = transaksi.id_unit");
+      $this->db->where("id_transaksi", $id_peminjaman);
+      return $this->db->get($this->table);
     }
 
 }

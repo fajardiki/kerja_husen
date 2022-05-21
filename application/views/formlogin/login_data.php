@@ -133,7 +133,7 @@
     </div>
     <div class="col-md-8 ">
         <h4> Welcome to Library Application</h4><hr class="line-title"> 
-        <img src="<?php echo base_url(); ?>assets/img/banner/img-lib.jpg" alt="Belum Tersedia" class="img-responsive">
+        <img src="<?php echo base_url(); ?>assets/img/banner/N5oiWK1hFv.jpg" alt="Belum Tersedia" class="img-responsive" style="width: 100%;">
     </div>
 </div>
 </div>

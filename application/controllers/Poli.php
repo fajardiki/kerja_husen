@@ -82,7 +82,8 @@ class Poli extends MY_Controller {
                         $save  = array(
                             'id_unit'   => $this->input->post('id_unit'),
                             'nama'  => $this->input->post('nama'),
-                            'unit'    => $this->input->post('unit')
+                            'unit'    => $this->input->post('unit'), 
+                            'email' => $this->input->post('email')
                             
                             
                             
@@ -152,9 +153,8 @@ class Poli extends MY_Controller {
                         $save  = array(
                             'id_unit'   => $this->input->post('id_unit'),
                             'nama'  => $this->input->post('nama'),
-                            'unit'    => $this->input->post('unit')
-                            
-                            
+                            'unit'    => $this->input->post('unit'), 
+                            'email' => $this->input->post('email')
                         );
 
                         //$g = $this->Mod_poli->getGambar($id_unit)->row_array();
@@ -186,6 +186,7 @@ class Poli extends MY_Controller {
                 }
 
             }else{
+              
                 $this->_set_rules();
                 
                 //apabila user mengkosongkan form input
@@ -193,22 +194,19 @@ class Poli extends MY_Controller {
                     // echo "masuk"; die();
                     
                     $id_unit = $this->input->post('id_unit');
-                    
-                    
-
-                        $save  = array(
-                            'id_unit'   => $this->input->post('id_unit'),
-                            'nama'  => $this->input->post('nama'),
-                            'unit'    => $this->input->post('unit')
-                            
-                        );
-                        $this->Mod_poli->updatePoli($id_unit, $save);
-                        // echo "berhasil"; die();
-                        redirect('poli/index/update-success');
-
-                   
+                    $save  = array(
+                        'id_unit'   => $this->input->post('id_unit'),
+                        'nama'  => $this->input->post('nama'),
+                        'unit'    => $this->input->post('unit'),
+                        'email' => $this->input->post('email')
                         
-                    
+                    );
+                    $this->Mod_poli->updatePoli($id_unit, $save);
+                    // echo "berhasil"; die();
+                    // var_dump();
+                    // return false;
+                    redirect('poli/index/update-success');
+
                 }
                 //jika tidak mengkosongkan
                 else{

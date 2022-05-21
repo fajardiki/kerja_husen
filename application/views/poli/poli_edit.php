@@ -36,11 +36,9 @@
             ?>
             <?php echo form_open_multipart('poli/update', array('class' => 'form-horizontal', 'id' => 'jvalidate')) ?>
 
-
-
+                <input type="text" name="id_unit" class="form-control hidden" value="<?php echo $edit['id_unit']; ?>">
                 <div class="form-group">
                     <p class="col-sm-2 text-left">Nama </p>
-
                     <div class="col-sm-10">
                         <input type="text" name="nama" class="form-control" placeholder="Nama" 
                         value="<?php echo $edit['nama']; ?>">
@@ -49,11 +47,18 @@
 
                 <div class="form-group">
                     <p class="col-sm-2 text-left">Nama Unit </p>
-
                     <div class="col-sm-10">
                         <input type="text" name="unit" class="form-control" placeholder="Nama Unit" value="<?php echo $edit['unit']; ?>">
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <p class="col-sm-2 text-left">Email </p>
+                    <div class="col-sm-10">
+                        <input type="text" name="email" class="form-control" placeholder="Email" value="<?php echo $edit['email']; ?>">
+                    </div>
+                </div>
+
                     </div>
                 </div>
 

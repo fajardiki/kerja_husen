@@ -1,0 +1,23 @@
+{
+  "name": "cipuskesmas",
+  "version": "1.0.0",
+  "description": "What is CodeIgniter\r ###################",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fajardiki/kerja_husen.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fajardiki/kerja_husen/issues"
+  },
+  "homepage": "https://github.com/fajardiki/kerja_husen#readme",
+  "dependencies": {
+    "chart.js": "^3.7.1",
+    "jquery": "^3.6.0"
+  }
+}

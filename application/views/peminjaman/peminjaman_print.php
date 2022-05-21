@@ -23,7 +23,7 @@
 
 		</tr>
 
-		<?php $no++ endforeach; ?>
+		<?php $no++; endforeach; ?>
 
 	</table>
 	<script type="text/javascript">

@@ -32,7 +32,14 @@ class Mod_pengembalian extends CI_Model {
         SELECT 
             a.*,
             b.unit,
-            d.rak
+            d.rak, 
+            (
+              CASE
+                WHEN CURRENT_DATE > a.tanggal_kembali 
+                THEN 'Y' 
+                ELSE 'N' 
+              END
+            ) AS telat 
         FROM
             $this->table_transaksi a,
             $this->table_poli b,

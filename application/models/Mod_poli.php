@@ -52,8 +52,8 @@ class Mod_poli extends CI_Model {
     //}
 
     function totalRows($table)
-	{
-		return $this->db->count_all_results($table);
+	  {
+		  return $this->db->count_all_results($table);
     }
 
     // function getTotalRows()

@@ -33,6 +33,7 @@
                                     <tr>
                                         <td>No.</td>
                                         <td>Nama Lengkap</td>
+                                        <td>Email</td>
                                         <td>Keterangan</td>
                                         <td class="aksi">Aksi</td>
                                     </tr>
@@ -44,10 +45,8 @@
                                 ?>
                                     <tr>
                                         <td><?php echo $no;?></td>
-                                        <!-- jika ada poli di dalam database maka tampilkan -->
-                                       
-                                        </td>
                                         <td><?php echo $row->nama;?></td>
+                                        <td><?php echo $row->email; ?></td>
                                         <td><?php echo $row->unit;?></td>
                                         
                                         <td class="aksi text-center">

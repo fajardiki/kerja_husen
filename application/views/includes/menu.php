@@ -72,7 +72,9 @@
                                 <li>
                                     <a href="<?php echo base_url('pengembalian'); ?>"><i class="fa fa-check-square fa-fw"></i> Pengembalian</a>
                                 </li>
-                                
+                                <li>
+                                    <a href="<?php echo base_url('telat_pengembalian'); ?>"><i class="fa fa-clock-o fa-fw"></i> Telat</a>
+                                </li>                                
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

@@ -65,11 +65,12 @@
                         <div class="form-group">
                             <label class="col-lg-4 ">Telat</label>
                             <div class="col-lg-8">
-                                <select name="telat" id="telat" class="form-control">
+                              <input type="text" name="telat" id="telat" class="form-control" readonly="readonly">
+                                <!-- <select name="telat" id="telat" class="form-control disabled" readonly>
                                     <option></option>
                                     <option value="Y">Y</option>
                                     <option value="N">N</option>
-                                </select>
+                                </select> -->
                             </div>
                         </div>
                         
@@ -233,6 +234,7 @@ $(document).ready(function() {
                        $("#tgl_kembali").val(data[2]);
                        $("#unit").val(data[3]);
                        $("#rak").val(data[4]);
+                       $("#telat").val(data[5]);
 
                     //    if(data[1] == formatDate(Date())) {
                     //         console.log(formatDate(Date()));

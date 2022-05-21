@@ -34,7 +34,7 @@ class Pengembalian extends MY_Controller {
         $hasil = $this->Mod_pengembalian->SearchTransaksi($no_transaksi);
         if($hasil->num_rows() > 0) {
             $dtrans = $hasil->row_array();
-            echo $dtrans['id_unit']."|".$dtrans['tanggal_pinjam']."|".$dtrans['tanggal_kembali']."|".$dtrans['unit']."|".$dtrans['rak'];
+            echo $dtrans['id_unit']."|".$dtrans['tanggal_pinjam']."|".$dtrans['tanggal_kembali']."|".$dtrans['unit']."|".$dtrans['rak']."|".$dtrans['telat'];
         }
     }
 

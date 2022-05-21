@@ -52,7 +52,13 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+                    <p class="col-sm-2 text-left">Email</p>
 
+                    <div class="col-sm-10">
+                        <input type="email" name="email" class="form-control" placeholder="Email">
+                    </div>
+                </div>
                 
 
                 <div class="form-group">

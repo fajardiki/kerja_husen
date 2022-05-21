@@ -114,6 +114,9 @@
             
             <div class="panel-footer">
                 <button id="simpan" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Simpan</button>
+                <a id="cetak" style="display: none; width: 80px;" class="btn btn-warning" href="<?php echo base_url('peminjaman/pracetak/') . $autonumber ?>" target="blank"><i class="glyphicon glyphicon-print"></i> Print</a>
+                <button id="reload" style="display: none; width: 100px;" class="btn"><i class="glyphicon glyphicon-repeat"></i> Reload</button>
+                <!-- <button id="cetak" class="btn btn-warning"><i class="glyphicon glyphicon-print"></i> Cetak</button> -->
 
             </div>
         </div>
@@ -394,16 +397,18 @@ $(document).ready(function() {
                  
                   alert("Transaksi Peminjaman Berhasil");
                   
-                  location.reload();
+                  // location.reload();
+                  document.getElementById('simpan').style.display = "none";
+                  document.getElementById('cetak').style.display = "inline-block";
+                  document.getElementById('reload').style.display = "inline-block";
                 }
             })
         }
-        
-    })
+    }); 
 
-
-  
-
+    $('#reload').on('click', function() {
+      location.reload();
+    });
 });
 </script>
 
